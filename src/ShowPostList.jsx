@@ -48,7 +48,7 @@ useEffect(() => {
     setTimeout(() => {
         setPostList(initialPostList);
         setLoading(false);
-    }, 5000)
+    }, 1000)
 }, [])
 
   return (

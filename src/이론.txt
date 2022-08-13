@@ -155,3 +155,4 @@ deps : 검사하고자 하는 값 또는 배열, 배열 형태이다.
 -> useEffect(function. [])
 특정 props나 state가 바뀔 때 실행하고 싶으면 특정 값을 넣어준다.
 -> useEffect(function. [바뀌는 값])
+
