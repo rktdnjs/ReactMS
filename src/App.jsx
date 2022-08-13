@@ -11,22 +11,12 @@ import Header from './Header';
 import Slogan from './Slogan';
 import ShowPostList from './ShowPostList';
 import Footer from './Footer';
+import {Routes, Route} from 'react-router-dom';
+import ShowPost from './ShowPost';
+import WritePost from './WritePost';
 
 function App() {
-    const initialPostList = [
-        {id:1, title:'학보, 시사N 대학기자상 취재', replCount:1},
-        {id:1, title:'학보, 시사N 대학기자상 취재', replCount:43},
-        {id:1, title:'학보, 시사N 대학기자상 취재', replCount:2},
-    ]
-    const [postList, setPostList] = useState(initialPostList);
-    const addPost = () => {
-        setPostList((postList) => [
-            ...postList, {id:4, title:'학보, 시사N 대학기자상 취재', replCount:21},
-        ])
-    }
     const [darkMode, setDarkMode] = useState(true);
-    const [loading, setLoading] = useState(false);
-    const [isPost,setIsPost] = useState(false);
 
     return (
         <>  
@@ -36,12 +26,13 @@ function App() {
                 <Header darkMode={darkMode} setDarkMode={setDarkMode}/>
                 <Main>
                     <Slogan/>
-                    <ShowPostList 
-                    loading={loading}
-                    isPost={isPost}
-                    postList={postList}
-                    addPost={addPost}
-                    />
+                    <Routes>
+                        <Route path='/' element={<ShowPostList/>}>
+                        </Route>
+                        <Route path='/write' element={<WritePost/>}></Route>
+                        <Route path='/post/:postID' 
+                        element={<ShowPost/>}></Route>
+                    </Routes>
                 </Main>
                 <Footer/>
             </MediaDiv>

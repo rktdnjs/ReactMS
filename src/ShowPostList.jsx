@@ -1,4 +1,5 @@
 import {
+    CursorDiv,
     LoadingDiv,
     LoadingImg,
     PagenumberDiv,
@@ -18,16 +19,39 @@ import loadingIcon from './loading.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import EachPost from './EachPost';
-import { element } from 'prop-types';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function ShowPostList({isPost, loading, addPost, postList}) {
+const initialPostList = [
+    {id:1, title:'학보, 시사N 대학기자상 취재', replCount:1},
+    {id:2, title:'학보, 시사N 대학기자상 취재', replCount:43},
+    {id:3, title:'학보, 시사N 대학기자상 취재', replCount:2},
+]
+
+function ShowPostList() {
+    const [loading, setLoading] = useState(false);
+    const [isPost,setIsPost] = useState(false);
+    const [postList, setPostList] = useState(initialPostList);
+    const addPost = () => {
+        setPostList((postList) => [
+            ...postList, {id:4, title:'학보, 시사N 대학기자상 취재', replCount:21},
+        ])
+    }
+
+const navigate = useNavigate();
+const goWrite = () => {
+    navigate('/write');
+}
+
   return (
     <>
     <PostSection>
         <PostTitleDiv>
             <FontAwesomeIcon onClick={addPost} icon={faArrowsRotate} />
             <PostTitle>익명게시판</PostTitle>
-            <FontAwesomeIcon icon={faPenToSquare} />
+            <CursorDiv>
+                <FontAwesomeIcon onClick={goWrite} icon={faPenToSquare} />
+            </CursorDiv>
         </PostTitleDiv>
         <PostListDiv>
             {loading ? 

@@ -4,6 +4,7 @@ import {
     TitleBig,
     TitleLogoDiv,
     TitleSmall,
+    CursorDiv
 } from './styledComponent';
 
 import {
@@ -26,11 +27,11 @@ function Header({darkMode, setDarkMode}) {
         <SubHeaderDiv>
             {darkMode ? (
                 <div>
-                    <FontAwesomeIcon onClick={toggleDarkMode} icon={faSun}/>
+                    <CursorDiv><FontAwesomeIcon onClick={toggleDarkMode} icon={faSun}/></CursorDiv>
                 </div>
             ) : (
                 <div>
-                    <FontAwesomeIcon onClick={toggleDarkMode} icon={faMoon}/>
+                    <CursorDiv><FontAwesomeIcon onClick={toggleDarkMode} icon={faMoon}/></CursorDiv>
                     </div>
             )}
         </SubHeaderDiv>
