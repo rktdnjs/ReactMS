@@ -21,6 +21,7 @@ import React from 'react'
 import EachPost from './EachPost';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const initialPostList = [
     {id:1, title:'학보, 시사N 대학기자상 취재', replCount:1},
@@ -29,9 +30,9 @@ const initialPostList = [
 ]
 
 function ShowPostList() {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [isPost,setIsPost] = useState(false);
-    const [postList, setPostList] = useState(initialPostList);
+    const [postList, setPostList] = useState([]);
     const addPost = () => {
         setPostList((postList) => [
             ...postList, {id:4, title:'학보, 시사N 대학기자상 취재', replCount:21},
@@ -42,6 +43,13 @@ const navigate = useNavigate();
 const goWrite = () => {
     navigate('/write');
 }
+
+useEffect(() => {
+    setTimeout(() => {
+        setPostList(initialPostList);
+        setLoading(false);
+    }, 5000)
+}, [])
 
   return (
     <>

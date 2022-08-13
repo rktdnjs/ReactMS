@@ -143,3 +143,15 @@ names배열을 map함수에 name이라는 이름으로 넣어서 이를 <li>태�
 map합수의 인자로 전달되는 함수 내부에서 컴포넌트 props를 설정하는 것과 같이 설정함
 const nameList = names.map((name, index) =>
 <li key={index}>{name}</li>)
+
+
+useEffect()란?
+리액트 컴포넌트가 렌더링 될 때마다 특정 작업을 실행할 수 있게 하는 Hook
+형태는 useEffect(function, deps) 이와 같다.
+function : 수행하고자 하는 작업
+deps : 검사하고자 하는 값 또는 배열, 배열 형태이다.
+
+가장 처음 렌더링 될 때 1번만 실행 하고 싶으면 빈 배열을 deps부분에 넣는다.
+-> useEffect(function. [])
+특정 props나 state가 바뀔 때 실행하고 싶으면 특정 값을 넣어준다.
+-> useEffect(function. [바뀌는 값])
