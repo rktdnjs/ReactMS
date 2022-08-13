@@ -13,6 +13,7 @@ import {
   ReplInput,
   ReplSubmitDiv,
 } from './styledComponent';
+import loadingIcon from './loading.svg';
 
 const postData = {
   title: `바운스`,
@@ -34,7 +35,19 @@ const ShowPost = () => {
   const [replLoading, setReplLoading] = useState(true);
 
   //useEffect 2개 사용하기
+    useEffect(() => {
+        setTimeout(() => {
+            setPost(postData);
+            setPostLoading(false);
+        }, 1000);
+    });
 
+    useEffect(() => {
+        setTimeout(()=> {
+            setRepls(replData);
+            setReplLoading(false);
+        },3000);
+    });
 
   //input창 상태관리
   const [repl, setRepl] = useState('');
@@ -51,7 +64,7 @@ const ShowPost = () => {
 
         {postLoading ? (
           <LoadingDiv>
-            <LoadingImg src={`${process.env.PUBLIC_URL}/img/loading.svg`} />
+            <LoadingImg src={loadingIcon}/>
           </LoadingDiv>
         ) : (
           <PostReplDiv>{post && post.contents}</PostReplDiv>
@@ -62,7 +75,7 @@ const ShowPost = () => {
         <ReplTitleDiv>댓글 {replCount} </ReplTitleDiv>
         {replLoading ? (
           <LoadingDiv>
-            <LoadingImg src={`${process.env.PUBLIC_URL}/img/loading.svg`} />
+            <LoadingImg src={loadingIcon}/>
           </LoadingDiv>
         ) : (
           repls &&

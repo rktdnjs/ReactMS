@@ -24,9 +24,9 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const initialPostList = [
-    {id:1, title:'학보, 시사N 대학기자상 취재', replCount:1},
-    {id:2, title:'학보, 시사N 대학기자상 취재', replCount:43},
-    {id:3, title:'학보, 시사N 대학기자상 취재', replCount:2},
+    {id:1, title:'학보, 시사N 대학기자상 취재'},
+    {id:2, title:'학보, 시사N 대학기자상 취재'},
+    {id:3, title:'학보, 시사N 대학기자상 취재'},
 ]
 
 function ShowPostList() {
@@ -35,7 +35,7 @@ function ShowPostList() {
     const [postList, setPostList] = useState([]);
     const addPost = () => {
         setPostList((postList) => [
-            ...postList, {id:4, title:'학보, 시사N 대학기자상 취재', replCount:21},
+            ...postList, {id:4, title:'학보, 시사N 대학기자상 취재'},
         ])
     }
 
@@ -77,7 +77,7 @@ useEffect(() => {
                         <EachPost 
                         key={element.id}
                         title={element.title}
-                        replCount={element.replCount}
+                        postID={element.id}
                         />
                     ))}
                 </ul> )     
