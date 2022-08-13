@@ -53,6 +53,11 @@ const ShowPost = () => {
   //input창 상태관리
   const [repl, setRepl] = useState('');
 
+  const onChange = (e) => {
+    setRepl(e.target.value);
+    // console.log(e.target.value);
+  }
+
   const countRepls = (repls) => {
     console.log('리뷰 개수를 세는 중...')
     return repls.length;
@@ -96,7 +101,7 @@ const ShowPost = () => {
         )}
 
         <WriterDiv>
-          <ReplInput></ReplInput>
+          <ReplInput onChange={onChange} value={repl}></ReplInput>
           <ReplSubmitDiv>
             <span>입력</span>
           </ReplSubmitDiv>

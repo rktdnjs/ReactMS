@@ -30,6 +30,7 @@ export const TitleLogoDiv = styled.div`
   align-items: center;
   margin: 15px;
   line-height: 1;
+  cursor: pointer;
 `;
 
 export const TitleBig = styled.span`
@@ -117,6 +118,7 @@ export const EachPostLi = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  cursor:pointer;
 `;
 
 export const PostLink = styled.span`
@@ -206,4 +208,40 @@ export const ReplSubmitDiv = styled.div`
   cursor: pointer;
 `;
 
+//WritePost.jsx
+export const PostWriteDiv = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+export const TitleInput = styled.input`
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+`;
+export const ContentsInput = styled.textarea`
+  margin-top: 10px;
+  padding: 10px;
+  height: 400px;
+  border-radius: 5px;
+  font-family: 'Noto Sans KR', sans-serif;
+`;
+export const PostSubmitDiv = styled.div`
+  width: 50%;
+  margin: 0px auto;
+  margin-top: 15px;
+  border-radius: 10px;
+  background-color: #f39926;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+`;
+export const PostSubmit = styled.div`
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 20px;
+`;
 // export default MediaDiv;
