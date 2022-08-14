@@ -164,3 +164,31 @@ useMemo(function, deps)
 
 특정값이 바뀌면 함수를 호출하여 연산하고, 값이 바뀌지 않으면 재사용한다.
 useMemo(function, [특정 값])
+
+
+useRef()란?
+가상 돔에서 조작하고 결과물만 real DOM으로 보낼 수 있게 하는 hook이 바로 useRef이다.
+(사실 이걸 적는 나도 이게 정확히 무슨 소리인진 모르고, 실습하면 OK할 것이다!)
+
+
+useCallback()란?
+여기부터는 최적화 기법에 해당하는 부분이다.
+어떠한 부분을 기억해서 필요할 때 꺼내쓰는 것이라 보면 된다.
+꼭 필요한 건 아닐수도 있다. 머나먼 훗날 아마 이것을 사용하게 될 것이다!
+연산이 오래 걸리고, 복잡한 함수일 수록 해당 과정이 더욱 효율적이다.
+
+import로 useCallback을 불러서 해당 함수를 useCallback함수 안에 감싸주면 된다.
+Deps부분에는 해당하는 요소가 바뀌면 다시 만든다는 뜻이라고생각하면 된다.
+const addPost = () => {
+        setPostList((postList) => [
+            ...postList, {id:4, title:'학보, 시사N 대학기자상 취재'},
+        ])
+    }
+이 친구를 다음과 같이 바꾼것이다.
+const addPost = useCallback(() => {
+        setPostList((postList) => [
+            ...postList, {id:4, title:'학보, 시사N 대학기자상 취재'},
+        ])
+    }, [postList]);
+여기서 postList가 바뀔때에만 리 렌더링 된다.
+

@@ -21,7 +21,7 @@ import React from 'react'
 import EachPost from './EachPost';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 
 const initialPostList = [
     {id:1, title:'학보, 시사N 대학기자상 취재'},
@@ -31,13 +31,15 @@ const initialPostList = [
 
 function ShowPostList() {
     const [loading, setLoading] = useState(true);
-    const [isPost,setIsPost] = useState(false);
+    const [isPost, setIsPost] = useState(false);
     const [postList, setPostList] = useState([]);
-    const addPost = () => {
+
+    const addPost = useCallback(() => {
         setPostList((postList) => [
             ...postList, {id:4, title:'학보, 시사N 대학기자상 취재'},
         ])
-    }
+    }, [postList]);
+    //연산량이 많은 경우, 사용하면 효율적이다. (필수는 아님)
 
 const navigate = useNavigate();
 const goWrite = () => {
