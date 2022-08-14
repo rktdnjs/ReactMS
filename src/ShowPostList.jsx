@@ -108,6 +108,6 @@ const ShowPostList = ({apiUrl}) => {
       )}
     </>
   );
-};
+}; 
 
 export default ShowPostList;
