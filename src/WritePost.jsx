@@ -8,11 +8,11 @@ import {
 import WriteTitle from './WriteTitle';
 import InputPost from './InputPost';
 
-const SubmitComponent = () => {
+const SubmitComponent = React.memo(() => (
     <PostSubmitDiv>
         <PostSubmit>작성완료</PostSubmit>
     </PostSubmitDiv>
-}
+));
 
 const WritePost = () => {
     const [inputs, setInputs]= useState({
@@ -35,14 +35,11 @@ const WritePost = () => {
 
   return (
     <PostSection>
-
       <WriteTitle/>
       <PostWriteDiv>
         <InputPost onChange={onChange} title={title} content={contents}/>
       </PostWriteDiv>
-      <PostSubmitDiv>
-        <PostSubmit>작성완료</PostSubmit>
-      </PostSubmitDiv>
+      <SubmitComponent/>
     </PostSection>
   );
 }

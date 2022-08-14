@@ -192,3 +192,11 @@ const addPost = useCallback(() => {
     }, [postList]);
 여기서 postList가 바뀔때에만 리 렌더링 된다.
 
+
+React.memo란?
+이것도 최적화 기법중 하나이다.
+Props가 안 바뀌어도, setState로 변화가 안일어나도
+상위 컴포넌트가 re-render되면 리렌더링 되버린다.
+이 때 컴포넌트를 기억해놓았다가 정말 필요한 상황에서만 리렌더링 하자!
+=> React.memo!!
+

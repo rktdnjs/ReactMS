@@ -16,4 +16,4 @@ function Slogan() {
   )
 }
 
-export default Slogan
+export default React.memo(Slogan);

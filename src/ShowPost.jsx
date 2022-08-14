@@ -73,10 +73,10 @@ const ShowPost = () => {
   //연산을 다시 하지않고 재사용을 한다.
   const replCount = useMemo(() => countRepls(repls), [repls]);
 
-  return (
-    <div>
-      <PostSection>
-        <PostTitleDiv>
+  const PostAndRepl = React.memo(({post, postLoading, replLoading, repls}) => {
+    return (
+    <>
+         <PostTitleDiv>
           <PostTitle>{post && post.title}</PostTitle>
         </PostTitleDiv>
 
@@ -104,7 +104,19 @@ const ShowPost = () => {
             </PostReplDiv>
           ))
         )}
+    </>
+    )
+  })
 
+  return (
+    <div>
+      <PostSection>
+        <PostAndRepl
+        post={post}
+        postLoading={postLoading}
+        replLoading={replLoading}
+        repls={repls}
+        />
         <WriterDiv>
           <ReplInput onChange={onChange} ref={replInput} value={repl}></ReplInput>
           <ReplSubmitDiv>
