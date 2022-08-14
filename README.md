@@ -1,3 +1,5 @@
+## 교훈 : git push --force << 이거 함부로 하지 말자 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ(기존 커밋 다 사라짐)
+
 ## 멋사 REACT 실습 예제
 
 ## Django-api Document
