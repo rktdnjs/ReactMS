@@ -4,7 +4,7 @@
 ### 위에 부분 빼고 6-1까지 내용 정리
 ### 이후는 그냥 main branch에 몽땅
 
-## 멋사 REACT 실습 예제
+## 멋사 REACT 실습 예제(현재는 해당 서버가 닫혀있는것으로 보임, 작동x)
 
 ## Django-api Document
 
