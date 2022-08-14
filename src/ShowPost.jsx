@@ -14,7 +14,7 @@ import {
   ReplSubmitDiv,
 } from './styledComponent';
 import loadingIcon from './loading.svg';
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 
 const postData = {
   title: `바운스`,
@@ -63,6 +63,11 @@ const ShowPost = () => {
     return repls.length;
   };
 
+  const replInput = useRef();
+  useEffect(() => {
+        replInput.current.focus();
+    }, []);
+
   //memo hook실습
   //deps안에 repls가 들어가면, 이 repl데이터의 값이 바뀌면 재연산을 하고 아니면
   //연산을 다시 하지않고 재사용을 한다.
@@ -101,7 +106,7 @@ const ShowPost = () => {
         )}
 
         <WriterDiv>
-          <ReplInput onChange={onChange} value={repl}></ReplInput>
+          <ReplInput onChange={onChange} ref={replInput} value={repl}></ReplInput>
           <ReplSubmitDiv>
             <span>입력</span>
           </ReplSubmitDiv>
