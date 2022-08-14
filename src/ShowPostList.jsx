@@ -35,7 +35,9 @@ const ShowPostList = ({apiUrl}) => {
   const getPostList = useCallback(() => {
     setLoading(true);
     axios.get(`${apiUrl}list/?page=${page}&page_size=10`).then(response => {
+        // 전체페이지수를 담기위한 계산을 여기서 해줌
       const lastPage = Math.ceil(response.data.count / 10);
+      // 각 페이지를 tempPages라는 공간에 하나하나씩 집어넣어줌, 페이지네이션! 
       const tempPages = [];
       for (let i = 1; i <= lastPage; i++) {
         tempPages.push(i);
@@ -47,6 +49,7 @@ const ShowPostList = ({apiUrl}) => {
     })
   });
 
+  // 페이지가 바뀔 때마다 이 부분이 리렌더링 될 것이다. 초기값은 1
   useEffect(getPostList, [page]);
 
   return (
