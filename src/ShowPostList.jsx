@@ -22,6 +22,7 @@ import EachPost from './EachPost';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useCallback } from 'react';
+import axios from 'axios';
 
 const initialPostList = [
     {id:1, title:'학보, 시사N 대학기자상 취재'},
@@ -52,6 +53,13 @@ useEffect(() => {
         setLoading(false);
     }, 1000)
 }, [])
+
+useEffect(() => {
+    axios.get('https://reactapitest.pythonanywhere.com/api/list/?page=1&page_size=10')
+    .then(response => {
+        console.log(response);
+    })
+}, []) 
 
   return (
     <>
